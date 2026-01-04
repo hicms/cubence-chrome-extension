@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cubence 使用查询</title>
+    <link rel="stylesheet" href="../styles/popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="top-bar">
+        <div>
+          <div class="title">Cubence 使用</div>
+          <div class="subtitle">订阅制 API 服务 · <span class="timestamp" id="updateAt">--</span></div>
+        </div>
+        <div class="top-actions">
+          <button id="openTokenBtn" class="btn ghost tiny">Token</button>
+          <button id="refreshBtn" class="btn ghost tiny">刷新</button>
+        </div>
+      </header>
+
+      <!-- 订阅限制 -->
+      <div id="subscriptionInfo"></div>
+
+      <!-- 使用日志区域 -->
+      <section>
+        <div class="section-header">
+          <div class="section-title">使用日志</div>
+          <div class="section-desc">最近10条</div>
+        </div>
+        <div class="log-list" id="logList"></div>
+      </section>
+
+      <div id="messageBox" class="message"></div>
+    </div>
+
+    <!-- Token 设置模态框 -->
+    <div id="tokenModal" class="modal-overlay hidden">
+      <div class="modal">
+        <div class="modal-header">
+          <div>
+            <div class="modal-title">设置</div>
+            <div class="modal-desc">仅保存在本地 storage</div>
+          </div>
+          <button id="closeTokenBtn" class="btn ghost tiny">×</button>
+        </div>
+        <div>
+          <label style="display: block; margin-bottom: 4px; font-size: 13px; color: #6b7280;">Token</label>
+          <textarea
+            id="tokenInput"
+            placeholder="在此粘贴 Token 值"
+            spellcheck="false"
+          ></textarea>
+        </div>
+        <div class="modal-actions">
+          <button id="saveTokenBtn" class="btn primary">保存</button>
+          <button id="cancelTokenBtn" class="btn ghost">取消</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../shared/utils.js"></script>
+    <script src="../shared/api.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

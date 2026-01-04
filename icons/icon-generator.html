@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cubence 图标生成器</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: 40px;
+      background: #f5f5f5;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #1f2937;
+      margin-bottom: 10px;
+    }
+    .instructions {
+      background: #fef3c7;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      border-left: 4px solid #f59e0b;
+    }
+    .icons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .icon-box {
+      text-align: center;
+      padding: 20px;
+      background: #f9fafb;
+      border-radius: 8px;
+      border: 2px solid #e5e7eb;
+    }
+    .icon-box h3 {
+      margin: 0 0 15px 0;
+      color: #374151;
+      font-size: 14px;
+    }
+    .icon-wrapper {
+      background: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    button:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Cubence 图标生成器</h1>
+    <div class="instructions">
+      <strong>使用说明：</strong><br>
+      1. 右键点击下方任意图标 → "图片另存为" → 保存为对应的文件名<br>
+      2. 或者点击"下载"按钮自动下载<br>
+      3. 将所有图标保存到 <code>icons/</code> 目录
+    </div>
+
+    <div class="icons-grid">
+      <div class="icon-box">
+        <h3>icon-16.png (16×16)</h3>
+        <div class="icon-wrapper" style="width: 16px; height: 16px;">
+          <svg id="icon-16" width="16" height="16" viewBox="0 0 179 203" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" rx="13" transform="matrix(0.866025 -0.5 2.20305e-08 1 92 103)" fill="#4B5563"/>
+            <rect width="100" height="100" rx="13" transform="matrix(0.866025 0.5 -0.866025 0.5 88.6025 -3)" fill="#1F2937"/>
+            <rect width="100" height="100" rx="13" transform="matrix(0.866025 0.5 -2.20305e-08 1 0.000152588 53)" fill="#111827"/>
+            <rect width="72.7816" height="72.7816" rx="13" transform="matrix(0.866025 0.5 -2.20305e-08 1 11 73)" fill="#374151"/>
+            <rect width="28.1436" height="28.1436" rx="3" transform="matrix(0.866025 0.5 -2.20305e-08 1 11.0002 86)" fill="#E5E7EB" fill-opacity="0.9"/>
+            <rect width="28.1436" height="28.1436" rx="3" transform="matrix(0.866025 0.5 -2.20305e-08 1 50.0001 107)" fill="#E5E7EB" fill-opacity="0.9"/>
+            <rect width="13.8564" height="13.8564" rx="3" transform="matrix(0.866025 0.5 -2.20305e-08 1 43.0001 148)" fill="#E5E7EB" fill-opacity="0.9"/>
+          </svg>
+        </div>
+        <button onclick="downloadIcon('icon-16', 16)">下载</button>
+      </div>
+
+      <div class="icon-box">
+        <h3>icon-32.png (32×32)</h3>
+        <div class="icon-wrapper" style="width: 32px; height: 32px;">
+          <svg id="icon-32" width="32" height="32" viewBox="0 0 179 203" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" rx="13" transform="matrix(0.866025 -0.5 2.20305e-08 1 92 103)" fill="#4B5563"/>
+            <rect width="100" height="100" rx="13" transform="matrix(0.866025 0.5 -0.866025 0.5 88.6025 -3)" fill="#1F2937"/>
+            <rect width="100" height="100" rx="13" transform="matrix(0.866025 0.5 -2.20305e-08 1 0.000152588 53)" fill="#111827"/>
+            <rect width="72.7816" height="72.7816" rx="13" transform="matrix(0.866025 0.5 -2.20305e-08 1 11 73)" fill="#374151"/>
+            <rect width="28.1436" height="28.1436" rx="3" transform="matrix(0.866025 0.5 -2.20305e-08 1 11.0002 86)" fill="#E5E7EB" fill-opacity="0.9"/>
+            <rect width="28.1436" height="28.1436" rx="3" transform="matrix(0.866025 0.5 -2.20305e-08 1 50.0001 107)" fill="#E5E7EB" fill-opacity="0.9"/>
+            <rect width="13.8564" height="13.8564" rx="3" transform="matrix(0.866025 0.5 -2.20305e-08 1 43.0001 148)" fill="#E5E7EB" fill-opacity="0.9"/>
+          </svg>
+        </div>
+        <button onclick="downloadIcon('icon-32', 32)">下载</button>
+      </div>
+
+      <div class="icon-box">
+        <h3>icon-48.png (48×48)</h3>
+        <div class="icon-wrapper" style="width: 48px; height: 48px;">
+          <svg id="icon-48" width="48" height="48" viewBox="0 0 179 203" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" rx="13" transform="matrix(0.866025 -0.5 2.20305e-08 1 92 103)" fill="#4B5563"/>
+            <rect width="100" height="100" rx="13" transform="matrix(0.866025 0.5 -0.866025 0.5 88.6025 -3)" fill="#1F2937"/>
+            <rect width="100" height="100" rx="13" transform="matrix(0.866025 0.5 -2.20305e-08 1 0.000152588 53)" fill="#111827"/>
+            <rect width="72.7816" height="72.7816" rx="13" transform="matrix(0.866025 0.5 -2.20305e-08 1 11 73)" fill="#374151"/>
+            <rect width="28.1436" height="28.1436" rx="3" transform="matrix(0.866025 0.5 -2.20305e-08 1 11.0002 86)" fill="#E5E7EB" fill-opacity="0.9"/>
+            <rect width="28.1436" height="28.1436" rx="3" transform="matrix(0.866025 0.5 -2.20305e-08 1 50.0001 107)" fill="#E5E7EB" fill-opacity="0.9"/>
+            <rect width="13.8564" height="13.8564" rx="3" transform="matrix(0.866025 0.5 -2.20305e-08 1 43.0001 148)" fill="#E5E7EB" fill-opacity="0.9"/>
+          </svg>
+        </div>
+        <button onclick="downloadIcon('icon-48', 48)">下载</button>
+      </div>
+
+      <div class="icon-box">
+        <h3>icon-128.png (128×128)</h3>
+        <div class="icon-wrapper" style="width: 128px; height: 128px;">
+          <svg id="icon-128" width="128" height="128" viewBox="0 0 179 203" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" rx="13" transform="matrix(0.866025 -0.5 2.20305e-08 1 92 103)" fill="#4B5563"/>
+            <rect width="100" height="100" rx="13" transform="matrix(0.866025 0.5 -0.866025 0.5 88.6025 -3)" fill="#1F2937"/>
+            <rect width="100" height="100" rx="13" transform="matrix(0.866025 0.5 -2.20305e-08 1 0.000152588 53)" fill="#111827"/>
+            <rect width="72.7816" height="72.7816" rx="13" transform="matrix(0.866025 0.5 -2.20305e-08 1 11 73)" fill="#374151"/>
+            <rect width="28.1436" height="28.1436" rx="3" transform="matrix(0.866025 0.5 -2.20305e-08 1 11.0002 86)" fill="#E5E7EB" fill-opacity="0.9"/>
+            <rect width="28.1436" height="28.1436" rx="3" transform="matrix(0.866025 0.5 -2.20305e-08 1 50.0001 107)" fill="#E5E7EB" fill-opacity="0.9"/>
+            <rect width="13.8564" height="13.8564" rx="3" transform="matrix(0.866025 0.5 -2.20305e-08 1 43.0001 148)" fill="#E5E7EB" fill-opacity="0.9"/>
+          </svg>
+        </div>
+        <button onclick="downloadIcon('icon-128', 128)">下载</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function downloadIcon(id, size) {
+      const svg = document.getElementById(id);
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+
+      const svgData = new XMLSerializer().serializeToString(svg);
+      const img = new Image();
+      const blob = new Blob([svgData], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+
+      img.onload = function() {
+        ctx.drawImage(img, 0, 0, size, size);
+        canvas.toBlob(function(blob) {
+          const link = document.createElement('a');
+          link.download = `${id}.png`;
+          link.href = URL.createObjectURL(blob);
+          link.click();
+          URL.revokeObjectURL(url);
+        });
+      };
+
+      img.src = url;
+    }
+  </script>
+</body>
+</html>
