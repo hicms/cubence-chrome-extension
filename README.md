@@ -30,6 +30,11 @@
 - 有效的 Cubence 账号和 API Token
 - 网络连接到 `https://cubence.com`
 
+## 界面展示
+
+<img width="394" height="614" alt="image" src="https://github.com/user-attachments/assets/1016c49b-1144-4776-9d80-00512c4d4ca3" />
+
+
 ## 安装步骤
 
 ### 方式一：开发者模式安装（推荐）
