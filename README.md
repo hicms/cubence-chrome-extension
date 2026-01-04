@@ -74,7 +74,26 @@
 
 ### 获取 Cubence Token
 
-Token 是访问 Cubence API 的凭证，需要从浏览器 Cookie 中提取：
+扩展提供两种方式获取 Token：
+
+#### 方式一：从浏览器自动获取（推荐）
+
+1. **登录 Cubence**
+   - 访问 https://cubence.com
+   - 使用你的账号登录
+
+2. **打开扩展弹窗**
+   - 点击浏览器工具栏的扩展图标
+
+3. **自动获取 Token**
+   - 点击弹窗右上角的"Token"按钮
+   - 在"从浏览器获取"标签页中，点击"获取 Token"按钮
+   - 扩展会自动从浏览器 Cookie 中读取 Token
+   - 看到"Token 获取成功"提示表示成功
+
+#### 方式二：手动填写 Token
+
+如果自动获取失败，可以手动复制 Token：
 
 1. **登录 Cubence**
    - 访问 https://cubence.com
@@ -96,23 +115,11 @@ Token 是访问 Cubence API 的凭证，需要从浏览器 Cookie 中提取：
    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
    ```
 
-### 配置 Token
-
-1. **打开扩展弹窗**
-   - 点击浏览器工具栏的扩展图标
-
-2. **进入 Token 设置**
-   - 点击弹窗右上角的"Token"按钮
-   - 弹出 Token 配置对话框
-
-3. **输入 Token**
+5. **填写 Token**
+   - 点击扩展图标，点击"Token"按钮
+   - 切换到"Token 填写"标签页
    - 将复制的 Token 粘贴到输入框
-   - 确保 Token 完整无误（通常很长）
-
-4. **保存配置**
    - 点击"保存"按钮
-   - 看到"Token 已保存"提示表示成功
-   - 扩展会自动刷新数据
 
 ## 使用说明
 
@@ -506,6 +513,7 @@ chrome.storage.local.get(['cubenceToken'], (result) => {
 2. **权限说明**
    - `storage`：存储 Token 配置
    - `alarms`：定时刷新任务
+   - `cookies`：自动获取 cubence.com 的登录 Token
    - `host_permissions`：仅访问 `https://cubence.com/*`
 
 3. **数据隐私**
@@ -532,7 +540,25 @@ chrome.storage.local.get(['cubenceToken'], (result) => {
 
 ## 版本信息
 
-**当前版本**：1.0.0
+**当前版本**：1.1.0
+
+### 更新日志
+
+#### v1.1.0 (2026-01-04)
+
+- 新增从浏览器 Cookie 自动获取 Token 功能
+- 新增标签页切换 UI（从浏览器获取 / Token 填写）
+- 新增 `cookies` 权限支持
+- 优化 Token 配置流程，无需手动打开开发者工具
+
+#### v1.0.0
+
+- 初始版本发布
+- 订阅限制监控（5 小时 / 7 天）
+- 使用日志查看（最近 10 条）
+- 成本统计（最近 30 天）
+- Badge 提醒（颜色分级）
+- 自动刷新（5 分钟间隔）
 
 ### 主要特性
 
@@ -541,7 +567,7 @@ chrome.storage.local.get(['cubenceToken'], (result) => {
 - ✅ 成本统计（最近 30 天）
 - ✅ Badge 提醒（颜色分级）
 - ✅ 自动刷新（5 分钟间隔）
-- ✅ Token 管理（安全存储）
+- ✅ Token 管理（自动获取 / 手动填写）
 
 ### 技术特点
 

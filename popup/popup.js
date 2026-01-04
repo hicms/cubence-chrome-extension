@@ -14,6 +14,11 @@
     cancelTokenBtn: document.getElementById("cancelTokenBtn"),
     tokenModal: document.getElementById("tokenModal"),
     tokenInput: document.getElementById("tokenInput"),
+    fetchTokenBtn: document.getElementById("fetchTokenBtn"),
+    cancelBrowserBtn: document.getElementById("cancelBrowserBtn"),
+    browserTab: document.getElementById("browserTab"),
+    tokenTab: document.getElementById("tokenTab"),
+    authTabs: document.querySelectorAll(".auth-tab"),
     updateAt: document.getElementById("updateAt"),
     subscriptionInfo: document.getElementById("subscriptionInfo"),
     statGrid: document.getElementById("statGrid"),
@@ -49,6 +54,48 @@
     elements.closeTokenBtn.addEventListener("click", closeTokenModal);
     elements.saveTokenBtn.addEventListener("click", saveToken);
     elements.cancelTokenBtn.addEventListener("click", closeTokenModal);
+    elements.fetchTokenBtn.addEventListener("click", fetchTokenFromBrowser);
+    elements.cancelBrowserBtn.addEventListener("click", closeTokenModal);
+    elements.authTabs.forEach(tab => {
+      tab.addEventListener("click", () => switchTab(tab.dataset.tab));
+    });
+  }
+
+  // 切换标签页
+  function switchTab(tabName) {
+    elements.authTabs.forEach(tab => {
+      tab.classList.toggle("active", tab.dataset.tab === tabName);
+    });
+    elements.browserTab.classList.toggle("hidden", tabName !== "browser");
+    elements.tokenTab.classList.toggle("hidden", tabName !== "token");
+  }
+
+  // 从浏览器 Cookie 获取 Token
+  async function fetchTokenFromBrowser() {
+    try {
+      elements.fetchTokenBtn.disabled = true;
+      elements.fetchTokenBtn.textContent = "获取中...";
+
+      const cookie = await chrome.cookies.get({
+        url: "https://cubence.com",
+        name: "token"
+      });
+
+      if (cookie && cookie.value) {
+        await chrome.storage.local.set({ [TOKEN_KEY]: cookie.value });
+        currentToken = cookie.value;
+        closeTokenModal();
+        showMessage("Token 获取成功");
+        await loadData();
+      } else {
+        showMessage("未找到 Token，请先在 cubence.com 登录");
+      }
+    } catch (err) {
+      showMessage("获取失败: " + err.message);
+    } finally {
+      elements.fetchTokenBtn.disabled = false;
+      elements.fetchTokenBtn.textContent = "获取 Token";
+    }
   }
 
   // 处理刷新

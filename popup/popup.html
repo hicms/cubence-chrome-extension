@@ -44,17 +44,38 @@
           </div>
           <button id="closeTokenBtn" class="btn ghost tiny">×</button>
         </div>
-        <div>
-          <label style="display: block; margin-bottom: 4px; font-size: 13px; color: #6b7280;">Token</label>
-          <textarea
-            id="tokenInput"
-            placeholder="在此粘贴 Token 值"
-            spellcheck="false"
-          ></textarea>
+
+        <!-- 标签页切换 -->
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="browser">从浏览器获取</button>
+          <button class="auth-tab" data-tab="token">Token 填写</button>
         </div>
-        <div class="modal-actions">
-          <button id="saveTokenBtn" class="btn primary">保存</button>
-          <button id="cancelTokenBtn" class="btn ghost">取消</button>
+
+        <!-- 从浏览器获取 -->
+        <div id="browserTab" class="auth-panel">
+          <div class="browser-hint">
+            <p>如果你已在 cubence.com 登录，点击下方按钮自动获取 Token</p>
+          </div>
+          <div class="modal-actions">
+            <button id="fetchTokenBtn" class="btn primary">获取 Token</button>
+            <button id="cancelBrowserBtn" class="btn ghost">取消</button>
+          </div>
+        </div>
+
+        <!-- Token 填写表单 -->
+        <div id="tokenTab" class="auth-panel hidden">
+          <div class="form-group">
+            <label>Token</label>
+            <textarea
+              id="tokenInput"
+              placeholder="在此粘贴 Token 值"
+              spellcheck="false"
+            ></textarea>
+          </div>
+          <div class="modal-actions">
+            <button id="saveTokenBtn" class="btn primary">保存</button>
+            <button id="cancelTokenBtn" class="btn ghost">取消</button>
+          </div>
         </div>
       </div>
     </div>

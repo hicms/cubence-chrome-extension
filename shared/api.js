@@ -44,9 +44,29 @@
     return result.data || result;
   }
 
+  // 邮箱登录
+  async function emailLogin(email, password) {
+    const url = `${BASE_URL}/auth/email-login`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "accept": "*/*",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ login: email, password }),
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.message || `HTTP ${response.status}`);
+    }
+    return data;
+  }
+
   root.CubenceApi = {
     fetchSubscriptions,
     fetchDashboardOverview,
     fetchUsageLogs,
+    emailLogin,
   };
 })(typeof self !== "undefined" ? self : this);
